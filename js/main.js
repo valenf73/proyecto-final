@@ -12,12 +12,26 @@ function calcularCuotas(monto, cuotas) {
     return "El monto de cada cuota mensual es: $" + cuotaMensual;
 }
 
-// Ingreso de datos
-let montoInput = parseFloat(prompt("Ingrese el monto total:"));
-let cuotasInput = parseInt(prompt("Ingrese el número de cuotas:"));
+// Inicializamos el valor de la variable que vamos a utilizar en el ciclo
+let realizarCalculo = true;
 
-// Llamada de la función cargada en la variable resultado
-let resultado = calcularCuotas(montoInput, cuotasInput);
+// Ciclo while que permite múltiples cálculos
+while (realizarCalculo) {
+    // Ingreso de datos
+    let montoInput = parseFloat(prompt("Ingrese el monto total:"));
+    let cuotasInput = parseInt(prompt("Ingrese el número de cuotas:"));
 
-// Visualización del resultado en la consola
-alert(resultado);
+    // Llamada de la función cargada en la variable resultado
+    let resultado = calcularCuotas(montoInput, cuotasInput);
+
+    // Visualización del resultado en la consola
+    alert(resultado);
+
+    // Consulta al usuario
+    let opcion = prompt("¿Desea realizar otro cálculo? (s/n)");
+
+    // Verificación
+    if (opcion.toLowerCase() !== "s") {
+        realizarCalculo = false;
+    }
+}
